@@ -202,10 +202,6 @@ hr {
 
 /*Services*/
 
-.sec-services {
-  background: #0;
-}
-
 .sec-services i {
   display: block;
   margin: auto;
@@ -265,20 +261,6 @@ footer {
 
 .soc-media-ul li:not(:first-child) a {
   margin-left: 1em;
-}
-
-.soc-media-ul a {
-  display: block;
-  padding: 0.5em .65rem;
-  font-size: 1rem;
-  color: #0;
-  border-radius: 50%;
-  border: 2px solid;
-
-  &:hover,
-  &:focus {
-    color: $red;
-  }
 }
 
 .sec-services .row {
