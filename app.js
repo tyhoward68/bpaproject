@@ -11,7 +11,7 @@ app.use(flash());
 app.use(passport.intitialize());
 app.use(passport.session());
 */
-
+console.log ("Im here in the app.js")
 var routes = require('./routes/index');
 
 var app = express();

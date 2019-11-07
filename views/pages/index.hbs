@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<style>
+a, .sec-contact .btn {
+	 transition: all 0.25s;
+}
+/*=Typography=*/
+ html {
+	 font-size: 16px;
+}
+ body {
+	 font-family: 'Open sans', sans-serif;
+	 font-weight: 300;
+}
+ .navbar a, .sec-about p {
+	 text-align: center;
+}
+ .navbar a {
+	 font-size: 16px;
+}
+ .navbar .fa-external-link {
+	 font-size: 10px;
+}
+ .main-heading {
+	 font-family: 'Open sans', sans-serif;
+	 font-weight: 300;
+	 text-align: center;
+	 letter-spacing: 9px;
+	 text-transform: uppercase;
+}
+ .container > h1 {
+	 font-weight: 300;
+	 text-align: center;
+	 text-transform: uppercase;
+}
+ p {
+	 font-size: 16px;
+	 line-height: 1.5;
+}
+ .sec-about a {
+	 text-decoration: underline;
+}
+ h2 {
+	 font-weight: 300;
+	 text-align: center;
+}
+ .sec-testimonials p {
+	 font-style: italic;
+}
+ .sec-contact .btn {
+	 text-transform: uppercase;
+}
+ .soc-media-ul a {
+	 text-align: center;
+	 text-decoration: none;
+}
+/*=Base=*/
+ section {
+	 padding: 5em 0;
+}
+ footer {
+	 padding: 3em 0;
+}
+ @media screen and (max-width: 768px) and (min-width: 485px) {
+	 form {
+		 max-width: 70%;
+	}
+}
+ ul {
+	 padding: 0;
+	 margin: 0;
+	 list-style-type: none;
+}
+ hr {
+	 margin-bottom: 3em;
+	 width: 7%;
+}
+/*=Layout=*/
+ .sec-folio .row {
+	 margin-bottom: 3em;
+}
+ .sec-folio img {
+	 max-width: 100%;
+}
+/*Header*/
+ .navbar-default {
+	 background: #fff;
+}
+ .navbar .fa-external-link {
+	 vertical-align: top;
+}
+ .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	 color: #ad0000;
+}
+ .navbar-default .navbar-nav > li > a:active {
+	 color: #940000;
+}
+/*Main*/
+ .sec-main {
+	 position: relative;
+	 height: 560px;
+	 background: url(https://storage.needpix.com/rsynced_images/sports-650364_1280.jpg) no-repeat center center;
+	 background-size: cover;
+}
+ .sec-main:after {
+	 content: "";
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background: rgba(0, 0, 0, .5);
+}
+ .main-heading {
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 z-index: 2;
+	 padding: 0;
+	 margin: auto;
+	 height: 40px;
+	 color: #fff;
+}
+/*About*/
+ .sec-about a {
+	 color: #000;
+}
+ .sec-about a:hover, .sec-about a:focus {
+	 color: #ad0000;
+}
+/*Services*/
+ .sec-services {
+	 background: #f9f9f9;
+}
+ .sec-services i {
+	 display: block;
+	 margin: auto;
+	 width: 45px;
+}
+ .sec-services .fa-paint-brush {
+	 width: 64px;
+}
+ .sec-services .fa-code {
+	 width: 68px;
+}
+ .sec-services h2 {
+	 margin: 1em 0;
+}
+/*Testimonials*/
+ .sec-testimonials {
+	 background: #f9f9f9;
+}
+/*Contact*/
+ .sec-contact .form-control:focus {
+	 border-color: #ad0000;
+	 box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(173, 0, 0, .6);
+}
+ .sec-contact .btn {
+	 padding: 0.5rem 1.75rem;
+	 background: #000;
+	 font-size: 0.95rem;
+	 color: #fff;
+}
+ .sec-contact .btn:hover, .sec-contact .btn:focus {
+	 background: #ad0000;
+	 border-color: #7a0000;
+}
+/*Footer*/
+ footer {
+	 background: #000;
+}
+ .soc-media-ul {
+	 display: flex;
+	 justify-content: center;
+}
+ .soc-media-ul li:not(:first-child) a {
+	 margin-left: 1em;
+}
+ .soc-media-ul a {
+	 display: block;
+	 padding: 0.5em 0.65rem;
+	 font-size: 1rem;
+	 color: #fff;
+	 border-radius: 50%;
+	 border: 2px solid;
+}
+ .soc-media-ul a:hover, .soc-media-ul a:focus {
+	 color: #ad0000;
+}
+ .sec-services .row {
+	 margin-bottom: 3em;
+}
+ .sec-services img {
+	 max-width: 100%;
+}
+ .sec-contact .row {
+	 margin-bottom: 3em;
+}
+ .sec-contact img {
+	 max-width: 100%;
+}
+ .sec-testimonials .row {
+	 margin-bottom: 3em;
+}
+ .sec-testimonials img {
+	 max-width: 100%;
+}
+ .sec-about .row {
+	 margin-bottom: 3em;
+}
+ .sec-about img {
+	 max-width: 100%;
+}
+ 
+</style>
+
+
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+
+  <div class="wrapper">
+    <header role="header">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse" role="button">
+              <span class="sr-only">Toggle Navigation</span>
+              
+              <span class="icon-bar"></span>
+              
+              <span class="icon-bar"></span>
+              
+              <span class="icon-bar"></span>
+            </button>
+  
+            <a href="#" class="navbar-brand">Epic Sporting Goods</a>
+          </div>
+  
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right js-nav">
+              <li><a href="https://fast-shore-97960.herokuapp.com/">Home</a></li>
+  
+              <li><a href="#about">Gear</a></li>
+  
+              <li><a href="#services">Clothes</a></li>
+  
+              <li><a href="#folio">Shoes</a></li>
+  
+              <li><a href="#testimonials">New Releases</a></li>
+  
+   <li><a href="#contact">Jerseys</a></li>
+  
+              <li><a href="http://alexsblog.org" target="_blank">Sign in</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  
+    <section id="home" class="sec-main">
+      <h1 class="main-heading">Welcome to Epic Sporting Goods</h1>
+    </section>
+  
+    <section id="about" class="sec-about">
+      <div class="container">
+        <h1>Gear</h1>
+  
+        <hr />
+   <div class="row">
+          <div class="col-md-4">
+            <img class="center-block" src="https://www.sportsmans.com/medias/remington-model-700-adl-bolt-action-rifle-package-1249978-1.jpg?context=bWFzdGVyfGltYWdlc3w4MDA5MnxpbWFnZS9qcGVnfGltYWdlcy9oYjAvaDNhLzg5MTMzMTUzNjQ4OTQuanBnfDQxMjBkY2Q0MzcwYTc0NTA3MGZlYmVmMGJjYzkzNWNhMmQxMTBkMDZiY2FlZTg2ZWMxYjM3NzJjYTQ0OWE0ODE"/>
+            <h2> Hunting Rifle</h2>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://cdn2.bigcommerce.com/n-arxsrf/re90tm8/products/90/images/1661/Titanium-Ankle-Brace-Foot__96649.1488435009.1024.1024.jpg?c=2" />
+            <h2>Ankle Brace</h2>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://scheels.scene7.com/is/image/Scheels/88779106650?wid=600&hei=600&qlt=75"/>
+            <h2>NBA Shooting Sleeve</h2>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <p></p>
+          </div>
+           
+        </div>
+      </div>
+    </section>
+    <section id="services" class="sec-services">
+      <div class="container">
+       
+     <h1>
+              Clothes
+            </h1>
+        <hr />
+  
+   <div class="row">
+          <div class="col-md-4">
+            <img class="center-block" src="https://image.sportsmansguide.com/adimgs/l/6/672564m2_ts.jpg"/>
+            <h2>Thick Hunting Jacket</h2>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://ae01.alicdn.com/kf/HTB1WxMHKpXXXXXAXVXXq6xXFXXXj/Harajuku-Sportwear-hombres-3d-baloncesto-Jordan-23-impresi-n-sudaderas-hoodies-de-exterior-sudaderas-hombre-2015.jpg" />
+            <h2>Michael Jordan Last Shot Long Sleeve Shirt</h2>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://www.sportsmans.com/medias/killik-gear-mens-nexus-water-resistant-hunting-jacket-p32156-1.jpg?context=bWFzdGVyfGltYWdlc3wxNzUwNzh8aW1hZ2UvanBlZ3xpbWFnZXMvaDRkL2gyOS84OTYxNjMxNDUzMjE0LmpwZ3wwYmFjNDAzOWIyMjgyOTE4MGJjYTk5OWJhMjcwZjRhZGJhZTc3YjI0ODhmZTBkYWJlZjhhNzY2MTZjMjg3NDFk"/>
+            <h2>Thin Hunting Jacket</h2>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="folio" class="sec-folio">
+      <div class="container">
+        <h1>Shoes</h1>
+  
+        <hr />
+  
+        <div class="row">
+          <div class="col-md-4">
+            <img class="center-block" src="https://live.staticflickr.com/5186/5612708392_7a5c300ed3.jpg"/>
+            <h2>Air Jordan 6 "Infrared"</h2>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://images.cabelas.com/is/image/cabelas/s7_828029_renderset_01?wid=300&hei=230&op_sharpen=1"/>
+           
+            <h2>Under Armor Hunting Boots</h2>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="http://www.usnewmall.com/image/cache/data/Adidas/Nemeziz-17/10-NEMEZIZ-17+360-AGILITY-FIRM-GROUND-CLEATS-MEN-SOCCER-750x500.jpg"/>
+            <h2>Nemeziz 17-360 Agility</h2>
+          </div>
+        </div>
+        </section>
+       
+  
+    <section id="testimonials" class="sec-testimonials">
+      <div class="container">
+        <h1>New Releases</h1>
+  
+        <hr />
+  
+        <div class="row">
+          <div class="col-md-4">
+            <img class="center-block" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3595000/ff_3595267-05b3f2e17856e86025f1_full.jpg&w=340"/>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F06%2Fnike-giannis-antetokounmpo-zoom-freak-1-official-unveil-release-date-7.jpg?w=1600&cbr=1&q=90&fit=max"/>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://images-na.ssl-images-amazon.com/images/I/61CeL8o7FpL._UX679_.jpg" />
+          </div>
+        </div>
+    </section>
+  
+    <section id="contact" class="sec-contact">
+      <div class="container">
+        <h1>Jerseys</h1>
+  
+        <hr />
+  
+        <div class="row">
+          <div class="col-md-4">
+            <img class="center-block" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3212000/ff_3212792_full.jpg&w=600"/>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_2079000/altimages/FF_2079386ALT1_full.jpg&w=600"/>
+          </div>
+  
+          <div class="col-md-4">
+            <img class="center-block" src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_3538000/ff_3538809-dd41a6fba6ef6d175f31_full.jpg&w=340" />
+          </div>
+        </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <footer id="footer">
+      <div class="container">
+        <ul class="soc-media-ul">
+          <li>
+            <a href="" class="fa fa-twitter" target="_blank"></a>
+          </li>
+  
+          <li>
+            <a href="" class="fa fa-google-plus" target="_blank"></a>
+          </li>
+  
+          <li>
+            <a href="" class="fa fa-linkedin" target="_blank"></a>
+          </li>
+  
+          <li>
+            <a href="" class="fa fa-behance" target="_blank"></a>
+          </li>
+  
+          <li>
+            <a href="" class="fa fa-envelope"></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+</body>
+</html>
