@@ -5,10 +5,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 
+/* 
 app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
 app.use(flash());
 app.use(passport.intitialize());
 app.use(passport.session());
+*/
 
 var routes = require('./routes/index');
 
