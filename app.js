@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
+var mongoose = require('mongoose');
 
 /* 
 app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
@@ -15,6 +16,8 @@ console.log ("Im here in the app.js")
 var routes = require('./routes/index');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/shopping', {useNewUrlParser: true });
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
