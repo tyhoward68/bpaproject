@@ -5,7 +5,9 @@ var Product = require('../models/product')
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Product.find(function(err,docs){
-    res.render('pages/index', { title: 'Shopping Cart', products: products });
+      var productChunks =
+
+      res.render('pages/index', { title: 'Shopping Cart', products: docs });
   });
 });
 
