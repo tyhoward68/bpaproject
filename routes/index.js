@@ -6,11 +6,15 @@ var Product = require('../models/product');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Product.find(function(err,docs){
+      if (err){
+        console.log(err);
+      }
       var productChunks = [];
       var chunkSize = 3;
       for (var i = 0; i < docs.length; i += chunkSize){
         productChunks.push(docs.slice(i, i + chunkSize));
       }
+      console.log("docs:" + docs);
       res.render('pages/index', { title: 'Shopping Cart', products: productChunks });
   });
 });

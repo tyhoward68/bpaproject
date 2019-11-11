@@ -61,7 +61,7 @@ MongoClient.connect(url, function(err, db) {
 **/
 
  // var myobj =Product;
- dbo.collection("product").insertMany(products, function(err, res) {
+ dbo.collection("products").insertMany(products, function(err, res) {
   if (err) throw err;
   console.log("1 document inserted");
   db.close();
