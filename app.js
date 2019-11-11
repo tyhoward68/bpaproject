@@ -31,6 +31,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
+
+app.get('/add-to-cart/:id', function (req, res) {
+  var productId = req.params.id;
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+  Product.findById(productId, function (err, product) {
+      if(err) {
+          return res.redirect('/');
+      }
+
+      cart.add(product, product.id);
+      req.session.cart = cart;
+      console.log(req.session.cart);
+      res.redirect('/');
+
+  })
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
