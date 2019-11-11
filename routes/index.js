@@ -19,4 +19,8 @@ router.get('/shop', function(req, res, next) {
   res.render('shop/index', { title: 'Shopping Cart' });
 });
 
+router.get("/add-to-cart/:id", function(req, res, next){
+var productId = req.params.id;
+});
+
 module.exports = router;
