@@ -5,17 +5,19 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
+var session  = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
+var MongoStore = require('connect-mongo')(session);
 
-/* 
-app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
-app.use(flash());
-app.use(passport.intitialize());
-app.use(passport.session());
-*/
+
 console.log ("Im here in the app.js")
 var routes = require('./routes/index');
 
 var app = express();
+
+//app.use(passport.intitialize());
+//app.use(passport.session());
 
 mongoose.connect('mongodb://localhost/shopping', {useNewUrlParser: true });
 
@@ -24,37 +26,40 @@ app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  cookie: {maxAge: 180 * 60 * 1000}
+}));
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next) {
+  //res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
+  next();
+});
 
 app.use('/', routes);
 
-
-app.get('/add-to-cart/:id', function (req, res) {
-  var productId = req.params.id;
-  var cart = new Cart(req.session.cart ? req.session.cart : {});
-
-  Product.findById(productId, function (err, product) {
-      if(err) {
-          return res.redirect('/');
-      }
-
-      cart.add(product, product.id);
-      req.session.cart = cart;
-      console.log(req.session.cart);
-      res.redirect('/');
-
-  })
-});
-
+/*
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+*/
 
 // error handlers
 
