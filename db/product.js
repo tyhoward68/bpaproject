@@ -32,14 +32,6 @@ var products = [
 
 
 
-
-
-
-
-
-
-
-
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("heroku_xrd3kmbd");
