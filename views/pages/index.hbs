@@ -283,16 +283,15 @@ a, .sec-contact .btn {
    <div class="row">
      {{# each this}}
           <div class="col-md-4">
-            <h1>product</h1>
+           
             <img class="center-block" src="{{this.imagePath}}"/>
             <h2>{{this.title}}</h2>
             <p>{{this.price}}</p>
-             <a href="#" class="btn btn-success pull-right" role="button">Button</a>
              
                         <div class="clearfix">
                             <div class="price pull-left">{{ this.price }}</div>
                             <a href="/add-to-cart/{{this._id}}" class="btn btn-raised btn-success pull-right">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add to shopping cart
+                                <i class="fa fa-plus" aria-hidden="true"> Add to shopping cart</i>
                             </a>
                         </div>
           </div>
