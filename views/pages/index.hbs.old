@@ -262,7 +262,7 @@ a, .sec-contact .btn {
   
               <li><a href="http://alexsblog.org" target="_blank">Sign in</a></li>
           
-           <li><img class="center-block" src="http://www.uidownload.com/files/241/549/123/shopping-cart-black-tool-shape-icon.png" width="40" height="42"<src/></li>
+           <li><a href="#"><img class="center-block" src="http://www.uidownload.com/files/241/549/123/shopping-cart-black-tool-shape-icon.png" width="40" height="42"></li>
           
             </ul>
           </div>
@@ -320,7 +320,6 @@ a, .sec-contact .btn {
   
           <div class="col-md-4">
             <img class="center-block" src="https://cdn2.bigcommerce.com/n-arxsrf/re90tm8/products/90/images/1661/Titanium-Ankle-Brace-Foot__96649.1488435009.1024.1024.jpg?c=2" />
-<<<<<<< HEAD
 
                       <h2>$119.99</h2>
           <h3>Outdoor Hunting Rifle</h3>
@@ -329,10 +328,6 @@ a, .sec-contact .btn {
 
  <a href="/add-to-cart" class="btn btn-success pull-right" role="button">Button</a>
 
-=======
-            <h2>Ankle Brace</h2>
-             <a href="/add-to-cart" class="btn btn-success pull-right" role="button">Button</a>
->>>>>>> c423c666ae3a9d8280bc87ce010af12ecf8781a1
           </div>
   
           <div class="col-md-4">
