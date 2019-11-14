@@ -68,7 +68,7 @@ router.get('/shopping-cart', function (req, res, next) {
   return res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 
-<<<<<<< HEAD
+
 router.get('/checkout', function(req, res, next){
   if(!req.session.cart) {
     return res.redirect('/shopping-cart');
@@ -77,7 +77,7 @@ router.get('/checkout', function(req, res, next){
   res.render('shop/checkout', {total: cart.totalItemPrice});
 });
 
-=======
+
 router.get('/user/signup', function(req, res, next){
   res.render('user/signup', {csrfToken: req.csrfToken()});
 });
@@ -85,6 +85,6 @@ router.get('/user/signup', function(req, res, next){
 router.post('user/signup', function(req,res,next){
   res.redirect('/');
 })
->>>>>>> 84cebbc54196ecf9f0c03337eb9942ea5115537f
+
 
 module.exports = router;
