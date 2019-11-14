@@ -9,8 +9,7 @@
                 <span class="label label-success">{{ this.price }}</span>
                 <div class="btn-group">
                     <button class="btn btn-primary btn-xs dropdown-toggle" type = "button" data-toggle="dropdown">Action<span>caret</span></button>
-                    <ul class="dropdown-menu"></ul>
-                    <ul>
+                    <ul class="dropdown-menu">
                         <li><a href= "#"> Reduce by 1 </a></li>
                          <li><a href= "#"> Remove All </a></li>
                     </ul>
@@ -28,7 +27,7 @@
 <hr>
 <div class= "row">
     <div class= col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-        <btn type= "btn" class="btn btn-success">Checkout</btn>
+        <a href='/checkout' type= "button" class="btn btn-success">Checkout</a>
     </div>
 </div>
 {{ else }}
