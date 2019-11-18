@@ -27,6 +27,28 @@ router.get('/shop', function(req, res, next) {
   res.render('shop/index', { title: 'Shopping Cart' });
 });
 
+/* GET gear page. */
+router.get('/shop/gear', function(req, res, next) {
+  res.render('shop/gear', { title: 'Shopping Cart' });
+});
+
+/* GET clothes page. */
+router.get('/shop/clothes', function(req, res, next) {
+  res.render('shop/clothes', { title: 'Shopping Cart' });
+});
+
+/* GET shoes page. */
+router.get('/shop/shoes', function(req, res, next) {
+  res.render('shop/shoes', { title: 'Shopping Cart' });
+});
+
+/* GET jerseys page. */
+router.get('/shop/jerseys', function(req, res, next) {
+  res.render('shop/jerseys', { title: 'Shopping Cart' });
+});
+
+
+
 /* GET home page. */
 router.get('/bill', function(req, res, next) {
   res.render('shop/index', { title: 'Shopping Cart' });
