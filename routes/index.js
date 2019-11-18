@@ -99,6 +99,9 @@ router.get('/checkout', function(req, res, next){
   res.render('shop/checkout', {total: cart.totalItemPrice});
 });
 
+//const { check, validationResult } = require('express-validator');
+
+
 
 router.get('/user/signup', function(req, res, next){
   res.render('user/signup', {csrfToken: req.csrfToken()});
@@ -106,7 +109,7 @@ router.get('/user/signup', function(req, res, next){
 
 router.post('user/signup', function(req,res,next){
   res.redirect('/');
-})
+});
 
 
 module.exports = router;

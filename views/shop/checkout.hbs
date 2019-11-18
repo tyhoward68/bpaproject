@@ -28,18 +28,18 @@
     <div class="col-xs-12">
         <div class="form-group">
          <label for="card-number">Credit card Number</label>
-         <input type="text" id="card-number" class="form-control" card-number.isInt() required>   
+         <input type="text" id="card-number" class="form-control" required>   
         </div>
     </div>
     <div class="col-xs-12">
         <div class="form-group">
-         <label for="card-expiry-month">Expiry Month</label>
+         <label for="card-expiry-month">Expiration Month</label>
          <input type="text" id="card-expiry-month" class="form-control" required>   
         </div>
     </div>
     <div class="col-xs-12">
         <div class="form-group">
-         <label for="card-expiry-Year">Expiry Year</label>
+         <label for="card-expiry-Year">Expiration Year</label>
          <input type="text" id="card-expiry-Year" class="form-control" required>   
         </div>
     </div>
@@ -52,6 +52,7 @@
     </div>
     <div class="col-xs-12">
         <div class="form-group">
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
             <button type="submit" class="btn btn-success">Buy now</button>
         </div>
     </div>
@@ -63,6 +64,7 @@
     </form>
     </div>
     </div>
+
 
 
 
