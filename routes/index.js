@@ -11,7 +11,7 @@ router.use(csrfProtection);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Product.find({type:'gear'}, function(err,docs){
+    Product.find(/**{type:'gear'},**/ function(err,docs){
       if (err){
         console.log(err);
       }
