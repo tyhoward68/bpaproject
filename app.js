@@ -17,6 +17,8 @@ var routes = require('./routes/index');
 var app = express();
 
 mongoose.connect('mongodb://dbuser:dbpassword1@ds141178.mlab.com:41178/heroku_xrd3kmbd', {useNewUrlParser: true });
+require('./config/passport');
+
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));

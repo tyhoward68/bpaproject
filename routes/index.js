@@ -1,14 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var Product = require('../models/product');
 var csrf = require('csurf');
+var passport = require('passport');
+
+var Product = require('../models/product');
+
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Product.find(function(err,docs){
+    Product.find({type:'gear'}, function(err,docs){
       if (err){
         console.log(err);
       }
@@ -68,7 +71,6 @@ router.get('/shopping-cart', function (req, res, next) {
   return res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
 });
 
-<<<<<<< HEAD
 router.get('/checkout', function(req, res, next){
   if(!req.session.cart) {
     return res.redirect('/shopping-cart');
@@ -77,14 +79,19 @@ router.get('/checkout', function(req, res, next){
   res.render('shop/checkout', {total: cart.totalItemPrice});
 });
 
-=======
 router.get('/user/signup', function(req, res, next){
-  res.render('user/signup', {csrfToken: req.csrfToken()});
+  var messages = req.flash('error');
+  res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
 
-router.post('user/signup', function(req,res,next){
-  res.redirect('/');
-})
->>>>>>> 84cebbc54196ecf9f0c03337eb9942ea5115537f
+router.post('/user/signup', passport.authenticate('local.signup', {
+  successRedirect: '/user/profile',
+  failureRedirect: '/user/signup',
+  failureFlash: true
+}));
+
+router.get('/user/profile', function(req, res, next){
+  res.render('user/profile');
+});
 
 module.exports = router;
