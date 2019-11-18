@@ -30,6 +30,28 @@ router.get('/shop', function(req, res, next) {
   res.render('shop/index', { title: 'Shopping Cart' });
 });
 
+/* GET gear page. */
+router.get('/shop/gear', function(req, res, next) {
+  res.render('shop/gear', { title: 'Shopping Cart' });
+});
+
+/* GET clothes page. */
+router.get('/shop/clothes', function(req, res, next) {
+  res.render('shop/clothes', { title: 'Shopping Cart' });
+});
+
+/* GET shoes page. */
+router.get('/shop/shoes', function(req, res, next) {
+  res.render('shop/shoes', { title: 'Shopping Cart' });
+});
+
+/* GET jerseys page. */
+router.get('/shop/jerseys', function(req, res, next) {
+  res.render('shop/jerseys', { title: 'Shopping Cart' });
+});
+
+
+
 /* GET home page. */
 router.get('/bill', function(req, res, next) {
   res.render('shop/index', { title: 'Shopping Cart' });
@@ -68,11 +90,11 @@ router.get('/shopping-cart', function (req, res, next) {
       return res.render('shop/shopping-cart', {products: null});
   }
   var cart = new Cart(req.session.cart);
-  return res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+  return res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalItemPrice});
 });
 
 router.get('/checkout', function(req, res, next){
-  if(!req.session.cart) {
+  if (!req.session.cart) {
     return res.redirect('/shopping-cart');
   }
   var cart = new Cart(req.session.cart);
