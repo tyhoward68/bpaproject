@@ -103,7 +103,7 @@ router.get('/checkout', function(req, res, next){
 
 //const { check, validationResult } = require('express-validator');
 
-router.post('/shop/checkout', function(req, res, next){
+router.get('/checkout1', function(req, res, next){
   var messages = req.flash('error');
   res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
