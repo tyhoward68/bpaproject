@@ -134,4 +134,41 @@ router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
 });
 
+/*
+router.get('/user/signuptest',  function(req, res, next){
+  var messages = req.flash('error');
+  res.render('user/signuptest', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+});
+*/
+
+var User = require('../models/user');
+
+router.use(express.json());
+router.post('/usertest', (req, res) => {
+  User.create({
+    email: req.body.email,
+    password: req.body.password
+  }).then(user => res.json(user));
+});
+
+const { check, validationResult } = require('express-validator');
+
+router.post('/user/signuptest', [
+  // username must be an email
+  check('username').isEmail(),
+  // password must be at least 5 chars long
+  check('password').isLength({ min: 5 })
+], (req, res) => {
+  // Finds the validation errors in this request and wraps them in an object with handy functions
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
+  User.create({
+    username: req.body.username,
+    password: req.body.password
+  }).then(user => res.json(user));
+});
+
 module.exports = router;
