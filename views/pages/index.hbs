@@ -1,96 +1,23 @@
 <!DOCTYPE html>
 
+<style>
+
+</style>
 
 
 <html>
 <head>
-<link rel='stylesheet' href='/stylesheets/mainpage.css'/>
+  <link rel='stylesheet' href='/stylesheets/products.css'/>
 </head>
 
 <body>
 
-
-
   <div class="wrapper">
-    <header role="header">
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse" role="button">
-              <span class="sr-only">Toggle Navigation</span>
-              
-              <span class="icon-bar"></span>
-              
-              <span class="icon-bar"></span>
-              
-              <span class="icon-bar"></span>
-            </button>
-  
-            <a href="#" class="navbar-brand">Epic Sporting Goods</a>
-
-           <img class="center-block" src="_Logo.jpg" width="50" height="50"<src/>
-          </div>
-  
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right js-nav">
-              <li><a href="https://fast-shore-97960.herokuapp.com/">Home</a></li>
-  
-              <li><a href="#about">Gear</a></li>
-  
-              <li><a href="#services">Clothes</a></li>
-  
-              <li><a href="#folio">Shoes</a></li>
-  
-              
-  
-   <li><a href="#contact">Jerseys</a></li>
-  
-              <li><a href="http://alexsblog.org" target="_blank">Sign in</a></li>
-              <li>
-                <a href="/shopping-cart/">
-                <i class="fa fa-shopping-cart" aria-hidden="true"> Shopping cart</i> 
-                <span class="badge">{{session.cart.totalItemQuantity}}</span>
-                </li>
-                </a>            
-                </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+{{>navbar}}
   
     <section id="home" class="sec-main">
       <h1 class="main-heading">Welcome to Epic Sporting Goods</h1>
     </section>
-  
-  
-<section id="about" class="sec-about">
-      <div class="container">
-        <h1>All Products</h1>
-  
-        <hr />
-
-  {{# each products}}
-
-   <div class="row">
-     {{# each this}}
-          <div class="col-md-4">
-           
-            <img class="center-block" src="{{this.imagePath}}"/>
-            <h2>{{this.title}}</h2>
-            <p>{{this.price}}</p>
-             
-                        <div class="clearfix">
-                            <div class="price pull-left">{{ this.price }}</div>
-                            <a href="/add-to-cart/{{this._id}}" class="btn btn-raised btn-success pull-right">
-                                <i class="fa fa-plus" aria-hidden="true"> Add to shopping cart</i>
-                            </a>
-                        </div>
-          </div>
-
-          {{/each}}
-        </div>
-        {{/each}}
-        
 
     <section id="about" class="sec-about">
       <div class="container">
@@ -100,34 +27,17 @@
    <div class="row">
           <div class="col-md-4">
             <img class="center-block" src="https://www.sportsmans.com/medias/remington-model-700-adl-bolt-action-rifle-package-1249978-1.jpg?context=bWFzdGVyfGltYWdlc3w4MDA5MnxpbWFnZS9qcGVnfGltYWdlcy9oYjAvaDNhLzg5MTMzMTUzNjQ4OTQuanBnfDQxMjBkY2Q0MzcwYTc0NTA3MGZlYmVmMGJjYzkzNWNhMmQxMTBkMDZiY2FlZTg2ZWMxYjM3NzJjYTQ0OWE0ODE"/>
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
-             <a href="#" class="btn btn-success pull-right" role="button">Button</a>
+            <h2> Hunting Rifle</h2>
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://cdn2.bigcommerce.com/n-arxsrf/re90tm8/products/90/images/1661/Titanium-Ankle-Brace-Foot__96649.1488435009.1024.1024.jpg?c=2" />
-
-
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
-             <a href="#" class="btn btn-success pull-right" role="button">Button</a>
-
- <a href="/add-to-cart" class="btn btn-success pull-right" role="button">Button</a>
-
             <h2>Ankle Brace</h2>
-             <a href="/add-to-cart" class="btn btn-success pull-right" role="button">Button</a>
-
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://scheels.scene7.com/is/image/Scheels/88779106650?wid=600&hei=600&qlt=75"/>
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
-             <a href="#" class="btn btn-success pull-right" role="button">Button</a>
+            <h2>NBA Shooting Sleeve</h2>
           </div>
         </div>
         
@@ -145,28 +55,22 @@
      <h1>
               Clothes
             </h1>
-        </hr >
+        <hr />
   
    <div class="row">
           <div class="col-md-4">
             <img class="center-block" src="https://image.sportsmansguide.com/adimgs/l/6/672564m2_ts.jpg"/>
-                     <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
+            <h2>Thick Hunting Jacket</h2>
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://ae01.alicdn.com/kf/HTB1WxMHKpXXXXXAXVXXq6xXFXXXj/Harajuku-Sportwear-hombres-3d-baloncesto-Jordan-23-impresi-n-sudaderas-hoodies-de-exterior-sudaderas-hombre-2015.jpg" />
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
+            <h2>Michael Jordan Last Shot Long Sleeve Shirt</h2>
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://www.sportsmans.com/medias/killik-gear-mens-nexus-water-resistant-hunting-jacket-p32156-1.jpg?context=bWFzdGVyfGltYWdlc3wxNzUwNzh8aW1hZ2UvanBlZ3xpbWFnZXMvaDRkL2gyOS84OTYxNjMxNDUzMjE0LmpwZ3wwYmFjNDAzOWIyMjgyOTE4MGJjYTk5OWJhMjcwZjRhZGJhZTc3YjI0ODhmZTBkYWJlZjhhNzY2MTZjMjg3NDFk"/>
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
+            <h2>Thin Hunting Jacket</h2>
           </div>
         </div>
           </div>
@@ -183,24 +87,18 @@
         <div class="row">
           <div class="col-md-4">
             <img class="center-block" src="https://live.staticflickr.com/5186/5612708392_7a5c300ed3.jpg"/>
-                     <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
+            <h2>Air Jordan 6 "Infrared"</h2>
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://images.cabelas.com/is/image/cabelas/s7_828029_renderset_01?wid=300&hei=230&op_sharpen=1"/>
            
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
+            <h2>Under Armor Hunting Boots</h2>
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="http://www.usnewmall.com/image/cache/data/Adidas/Nemeziz-17/10-NEMEZIZ-17+360-AGILITY-FIRM-GROUND-CLEATS-MEN-SOCCER-750x500.jpg"/>
-                      <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
+            <h2>Nemeziz 17-360 Agility</h2>
           </div>
         </div>
         </section>
@@ -215,26 +113,14 @@
         <div class="row">
           <div class="col-md-4">
             <img class="center-block" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3595000/ff_3595267-05b3f2e17856e86025f1_full.jpg&w=340"/>
-          
-                    <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F06%2Fnike-giannis-antetokounmpo-zoom-freak-1-official-unveil-release-date-7.jpg?w=1600&cbr=1&q=90&fit=max"/>
-          
-                    <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://images-na.ssl-images-amazon.com/images/I/61CeL8o7FpL._UX679_.jpg" />
-          
-                    <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
           </div>
         </div>
     </section>
@@ -248,26 +134,14 @@
         <div class="row">
           <div class="col-md-4">
             <img class="center-block" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3212000/ff_3212792_full.jpg&w=600"/>
-         
-                   <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_2079000/altimages/FF_2079386ALT1_full.jpg&w=600"/>
-         
-                   <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
           </div>
   
           <div class="col-md-4">
             <img class="center-block" src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_3538000/ff_3538809-dd41a6fba6ef6d175f31_full.jpg&w=340" />
-         
-                   <h2>$119.99</h2>
-          <h3>Outdoor Hunting Rifle</h3>
-            
           </div>
         </div>
               </div>

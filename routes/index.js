@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
+var flash = require('express-flash')
 
 var Product = require('../models/product');
 
@@ -10,7 +11,7 @@ var csrfProtection = csrf();
 router.use(csrfProtection);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/shop', function(req, res, next) {
     Product.find(/**{type:'gear'},**/ function(err,docs){
       if (err){
         console.log(err);
@@ -21,23 +22,45 @@ router.get('/', function(req, res, next) {
         productChunks.push(docs.slice(i, i + chunkSize));
       }
       console.log("docs:" + docs);
-      res.render('pages/index', { title: 'Shopping Cart', products: productChunks });
+      res.render('shop/gear', { title: 'Shopping Cart', products: productChunks });
   });
 });
 
 /* GET home page. */
-router.get('/shop', function(req, res, next) {
-  res.render('shop/index', { title: 'Shopping Cart' });
+router.get('/', function(req, res, next) {
+  res.render('pages/index', { title: 'Shopping Cart' });
 });
 
 /* GET gear page. */
 router.get('/shop/gear', function(req, res, next) {
-  res.render('shop/gear', { title: 'Shopping Cart' });
+  Product.find({type:'gear'}, function(err,docs){
+    if (err){
+      console.log(err);
+    }
+    var productChunks = [];
+    var chunkSize = 3;
+    for (var i = 0; i < docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
+    console.log("docs:" + docs);
+    res.render('shop/gear', { title: 'Shopping Cart', products: productChunks });
+  });
 });
 
 /* GET clothes page. */
 router.get('/shop/clothes', function(req, res, next) {
-  res.render('shop/clothes', { title: 'Shopping Cart' });
+  Product.find(/**{type:'gear'},**/ function(err,docs){
+    if (err){
+      console.log(err);
+    }
+    var productChunks = [];
+    var chunkSize = 3;
+    for (var i = 0; i < docs.length; i += chunkSize){
+      productChunks.push(docs.slice(i, i + chunkSize));
+    }
+    console.log("docs:" + docs);
+    res.render('shop/clothes', { title: 'Shopping Cart', products: productChunks });
+  });
 });
 
 /* GET shoes page. */
@@ -103,7 +126,7 @@ router.get('/checkout', function(req, res, next){
 
 //const { check, validationResult } = require('express-validator');
 
-router.post('/shop/checkout', function(req, res, next){
+router.get('/checkout1', function(req, res, next){
   var messages = req.flash('error');
   res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
@@ -138,5 +161,42 @@ router.post('/user/signup', passport.authenticate('local.signup', {
 router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
 });
+
+
+router.get('/user/signuptest',  function(req, res, next){
+  var messages = req.flash('error');
+  res.render('user/signuptest', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+});
+
+
+//var User = require('../models/user');
+
+const { check, validationResult } = require('express-validator/check');
+
+router.post('/user/signuptest', [
+  check('password').isLength({ min: 3 }),
+  check('email').isEmail(),
+  check('age').isNumeric()
+], (req, res) => {
+  const errors = validationResult(req)
+  const errors_array = errors.array()
+
+    //return res.status(422).json({ messages: messages.array(), hasErrors: messages.length > 0 })
+   return res.render('user/signuptest', {csrfToken: req.csrfToken(), messages: errors, hasErrors: errors.length > 0});
+});
+
+
+router.post('/user/signuptest', [
+  // username must be an email
+  check('email').isEmail(),
+  // password must be at least 5 chars long
+  check('password').isLength({ min: 5 })
+], (req, res) => {
+  // Finds the validation errors in this request and wraps them in an object with handy functions
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
 
 module.exports = router;
