@@ -24,7 +24,7 @@ require('./config/passport');
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
-// app.use(validator());
+app.use(validator());
 app.use(logger('dev'));
 
 app.use(bodyParser.json());
