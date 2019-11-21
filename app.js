@@ -9,6 +9,7 @@ var session  = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
+var validator = require('express-validator');
 
 
 console.log ("Im here in the app.js")
@@ -23,11 +24,12 @@ require('./config/passport');
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
-
+// app.use(validator());
 app.use(logger('dev'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 
 app.use(session({

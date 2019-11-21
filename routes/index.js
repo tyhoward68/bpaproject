@@ -110,14 +110,30 @@ router.post('/shop/checkout', function(req, res, next){
 
 router.get('/user/signup', function(req, res, next){
   var messages = req.flash('error');
+  console.log(messages);
+  console.log(messages.length);
   res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
-
+/**
 router.post('/user/signup', passport.authenticate('local.signup', {
   successRedirect: '/user/profile',
   failureRedirect: '/user/signup',
   failureFlash: true
 }));
+*/
+
+router.post('/user/signup', passport.authenticate('local.signup', {
+  failureRedirect: '/user/signup',
+  failureFlash: true
+}), function (req, res, next) {
+  if(req.session.oldUrl) {
+      var oldUrl = req.session.oldUrl;
+      req.session.oldUrl = null;
+      res.redirect(oldUrl);
+  } else {
+      res.redirect('/user/profile');
+  }
+});
 
 router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
