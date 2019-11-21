@@ -171,21 +171,17 @@ router.get('/user/signuptest',  function(req, res, next){
 
 //var User = require('../models/user');
 
-const { check, validationResult } = require('express-validator/check');
+const { body } = require('express-validator');
 
-router.post('/user/signuptest', [
-  check('password').isLength({ min: 3 }),
-  check('email').isEmail(),
-  check('age').isNumeric()
-], (req, res) => {
-  const errors = validationResult(req)
-  const errors_array = errors.array()
-
-    //return res.status(422).json({ messages: messages.array(), hasErrors: messages.length > 0 })
-   return res.render('user/signuptest', {csrfToken: req.csrfToken(), messages: errors, hasErrors: errors.length > 0});
+router.post('/user/signuptest', body('email').custom(value => {
+  return User.findUserByEmail(value).then(user => {
+    if (user) {
+      return Promise.reject('E-mail already in use');
+    }
+  });
+}), (req, res) => {
+  // Handle the request
 });
-
-
 router.post('/user/signuptest', [
   // username must be an email
   check('email').isEmail(),
@@ -198,5 +194,12 @@ router.post('/user/signuptest', [
     return res.status(422).json({ errors: errors.array() });
   }
 });
+{
+  "errors" [{
+    "location": "body",
+    "msg": "Invalid value",
+    "param": "username"
+  }]
+};
 
 module.exports = router;
