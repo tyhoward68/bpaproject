@@ -96,7 +96,8 @@ router.get('/add-to-cart/:id', function (req, res) {
   var cart = new Cart(req.session.cart ? req.session.cart : {});
 
   Product.findById(productId, function (err, product) {
-      if(err) {
+      if(err) {router
+        r
           return res.redirect('/');
       }
 

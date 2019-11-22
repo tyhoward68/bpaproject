@@ -10,6 +10,41 @@ a, .sec-contact .btn {
 	 font-family: 'Open sans', sans-serif;
 	 font-weight: 300;
 }
+.col-md-4{
+    float: left;
+    width: 24%;
+	padding: 10px;
+	height: auto;
+}
+.btn {
+	background-color: #bdbdbd;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin: 4px 2px;
+	opacity: 0;
+	transition: 0.3s;
+  }
+  .col-md-4 .btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: rgb(216, 216, 216);
+	color: white;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+  }
+  
+ .btn:hover {opacity: 1}
+
  .navbar a, .sec-about p {
 	 text-align: center;
 }
@@ -88,15 +123,15 @@ a, .sec-contact .btn {
 	 vertical-align: top;
 }
  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-	 color: #ad0000;
+	 color: #000000;
 }
  .navbar-default .navbar-nav > li > a:active {
-	 color: #940000;
+	 color: #000000;
 }
 /*Main*/
  .sec-main {
 	 position: relative;
-	 height: 560px;
+	 height: 360px;
 	 background: url(https://storage.needpix.com/rsynced_images/sports-650364_1280.jpg) no-repeat center center;
 	 background-size: cover;
 }
@@ -126,7 +161,7 @@ a, .sec-contact .btn {
 	 color: #000;
 }
  .sec-about a:hover, .sec-about a:focus {
-	 color: #ad0000;
+	 color: #000000;
 }
 /*Services*/
  .sec-services {
