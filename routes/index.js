@@ -9,6 +9,7 @@ var Product = require('../models/product');
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
+router.use(express.json());
 
 /* GET home page. */
 router.get('/shop', function(req, res, next) {
@@ -125,29 +126,36 @@ router.get('/user/signup', function(req, res, next){
 });
 
 
-router.post('/user/signup', passport.authenticate('local.signup', {
-  failureRedirect: '/user/signup',
-  failureFlash: true
-}), function (req, res, next) {
-  if(req.session.oldUrl) {
-      var oldUrl = req.session.oldUrl;
-      req.session.oldUrl = null;
-      res.redirect(oldUrl);
-  } else {
-      res.redirect('/user/profile');
-  }
+const { check, validationResult } = require('express-validator');
+
+router.post('/user/signup', [
+  // username must be an email
+  check('email','Valid email required').isEmail(),
+  // password must be at least 5 chars long
+  check('password', 'Valid password required > 5').isLength({ min: 5 })
+], (req, res, next) => {
+  // Finds the validation errors in this request and wraps them in an object with handy functions
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.render('user/signup', {csrfToken: req.csrfToken(), messages: errors.array(), hasErrors: errors.array().length > 0});
+    }
+    // if validation is successful, call next() to go on with passport authentication.
+  else
+  {
+
+    passport.authenticate("local.signup", {
+      successRedirect:'/user/profile',
+      failureRedirect:'/user/signup',
+      failureFlash : true
+  })(req,res,next)
+  
+}
+
 });
+
 
 router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
-});
-
-router.get('/checkout', function(req, res, next){
-  if (!req.session.cart) {
-    return res.redirect('/shopping-cart');
-  }
-  var cart = new Cart(req.session.cart);
-  res.render('shop/checkout', {total: cart.totalItemPrice});
 });
 
 
@@ -171,9 +179,7 @@ router.post('/user/signin', passport.authenticate('local.signin', {
   }
 });
 
-
-
-
+/*
 router.get('/user/signuptest', function(req, res, next){
   console.log("get");
   var errors = req.flash('errors'); //display error on page
@@ -186,9 +192,6 @@ router.get('/checkout', function(req, res, next){
 });
 
 
-const { check, validationResult } = require('express-validator');
-
-router.use(express.json());
 router.post('/checkout', [
   // username must be an email
   check('name').isLength({min: 5}).withMessage('Please input your name'),
@@ -205,6 +208,18 @@ router.post('/checkout', [
 
   //Move on to next page everthing is good.
 });
+
+
+router.get('/checkout', function(req, res, next){
+  if (!req.session.cart) {
+    return res.redirect('/shopping-cart');
+  }
+  var cart = new Cart(req.session.cart);
+  res.render('shop/checkout', {total: cart.totalItemPrice});
+});
+
+
+
 
 /*
 router.get('/checkout', function(req, res, next){
