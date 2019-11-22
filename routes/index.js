@@ -162,11 +162,36 @@ router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
 });
 
+
+router.get('/user/signin', function(req, res, next){
+  var messages = req.flash('error');
+  console.log(messages);
+  console.log(messages.length);
+  res.render('user/signin', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+});
+
+router.post('/user/signin', passport.authenticate('local.signin', {
+  failureRedirect: '/user/signup',
+  failureFlash: true
+}), function (req, res, next) {
+  if(req.session.oldUrl) {
+      var oldUrl = req.session.oldUrl;
+      req.session.oldUrl = null;
+      res.redirect(oldUrl);
+  } else {
+      res.redirect('/user/profile');
+  }
+});
+
+
+
+
 router.get('/user/signuptest', function(req, res, next){
   console.log("get");
   var errors = req.flash('errors'); //display error on page
   res.render('user/signuptest', {csrfToken: req.csrfToken(), errors: errors, hasErrors: messages.length > 0});
 });
+
 
 const { check, validationResult } = require('express-validator');
 router.use(express.json());
@@ -185,4 +210,8 @@ router.post('/user/signuptest', [
 
   //Move on to next page everthing is good.
 });
+
+
+
+
 module.exports = router;
