@@ -4,8 +4,8 @@
         {{hasErrors}}
         {{#if hasErrors}}
             <div class="alert alert-danger">
-                {{# each errors}}
-                    <p>{{this}}</p>
+                {{# each messages}}
+                    <p>{{this.msg}}</p>
                 {{/each}}
             </div>
         {{/if}}
