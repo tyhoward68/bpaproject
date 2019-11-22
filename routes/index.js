@@ -116,20 +116,7 @@ router.get('/shopping-cart', function (req, res, next) {
   return res.render('shop/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalItemPrice});
 });
 
-router.get('/checkout', function(req, res, next){
-  if (!req.session.cart) {
-    return res.redirect('/shopping-cart');
-  }
-  var cart = new Cart(req.session.cart);
-  res.render('shop/checkout', {total: cart.totalItemPrice});
-});
 
-//const { check, validationResult } = require('express-validator');
-
-router.get('/checkout1', function(req, res, next){
-  var messages = req.flash('error');
-  res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
-});
 
 router.get('/user/signup', function(req, res, next){
   var messages = req.flash('error');
@@ -161,28 +148,53 @@ router.post('/user/signup', passport.authenticate('local.signup', {
 router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
 });
+router.get('/checkout', function(req, res, next){
+  if (!req.session.cart) {
+    return res.redirect('/shopping-cart');
+  }
+  var cart = new Cart(req.session.cart);
+  res.render('shop/checkout', {total: cart.totalItemPrice});
+});
 
-router.get('/user/signuptest', function(req, res, next){
-  console.log("get");
-  var errors = req.flash('errors'); //display error on page
-  res.render('user/signuptest', {csrfToken: req.csrfToken(), errors: errors, hasErrors: messages.length > 0});
+router.get('/checkout', function(req, res, next){
+  var messages = req.flash('errors'); //display error on page
+  res.render('/checkout', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
 
 const { check, validationResult } = require('express-validator');
 router.use(express.json());
-router.post('/user/signuptest', [
+router.post('/checkout', [
   // username must be an email
-  check('email').isEmail(),
+  check('name').isLength({min: 5}).withMessage('Please input your name'),
   // password must be at least 5 chars long
-  check('password').isLength({ min: 5 }).withMessage('must be at least 5 chars long')
+  check('card-number').isLength({ min: 16 }).withMessage('must be at least 16 numbers long')
 ], (req, res) => {
   // Finds the validation errors in this request and wraps them in an object with handy functions
   const errors = validationResult(req)
+  console.log(errors);
   if (!errors.isEmpty()) {
     //return res.status(422).json({ errors: errors.array() });
-    res.render('user/signuptest', {csrfToken: req.csrfToken(), errors: errors.array(), hasErrors: errors.length > 0});
+    res.render('/shop', {csrfToken: req.csrfToken(), messages: errors.array(), hasErrors: errors.array().length > 0});
   }
 
   //Move on to next page everthing is good.
 });
+
+/*
+router.get('/checkout', function(req, res, next){
+  if (!req.session.cart) {
+    return res.redirect('/shopping-cart');
+  }
+  var cart = new Cart(req.session.cart);
+  res.render('shop/checkout', {total: cart.totalItemPrice});
+});
+
+//const { check, validationResult } = require('express-validator');
+
+router.get('/checkout1', function(req, res, next){
+  var messages = req.flash('error');
+  res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+});
+*/
+
 module.exports = router;
