@@ -162,44 +162,27 @@ router.get('/user/profile', function(req, res, next){
   res.render('user/profile');
 });
 
-
-router.get('/user/signuptest',  function(req, res, next){
-  var messages = req.flash('error');
-  res.render('user/signuptest', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+router.get('/user/signuptest', function(req, res, next){
+  console.log("get");
+  var errors = req.flash('errors'); //display error on page
+  res.render('user/signuptest', {csrfToken: req.csrfToken(), errors: errors, hasErrors: messages.length > 0});
 });
 
-
-//var User = require('../models/user');
-
-const { body } = require('express-validator');
-
-router.post('/user/signuptest', body('email').custom(value => {
-  return User.findUserByEmail(value).then(user => {
-    if (user) {
-      return Promise.reject('E-mail already in use');
-    }
-  });
-}), (req, res) => {
-  // Handle the request
-});
+const { check, validationResult } = require('express-validator');
+router.use(express.json());
 router.post('/user/signuptest', [
   // username must be an email
   check('email').isEmail(),
   // password must be at least 5 chars long
-  check('password').isLength({ min: 5 })
+  check('password').isLength({ min: 5 }).withMessage('must be at least 5 chars long')
 ], (req, res) => {
   // Finds the validation errors in this request and wraps them in an object with handy functions
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
+    //return res.status(422).json({ errors: errors.array() });
+    res.render('user/signuptest', {csrfToken: req.csrfToken(), errors: errors.array(), hasErrors: errors.length > 0});
   }
-});
-{
-  "errors" [{
-    "location": "body",
-    "msg": "Invalid value",
-    "param": "username"
-  }]
-};
 
+  //Move on to next page everthing is good.
+});
 module.exports = router;
