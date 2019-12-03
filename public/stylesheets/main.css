@@ -223,48 +223,48 @@ hr {
 }
 
 /*Footer*/
-
 footer {
-  background: #000;
+  background: rgb(0, 0, 0);
 }
-
 .soc-media-ul {
-  display: flex;
-  justify-content: center;
+ display: flex;
+ justify-content: center;
 }
-
 .soc-media-ul li:not(:first-child) a {
   margin-left: 1em;
 }
-
-.sec-services .row {
-  margin-bottom: 3em;
+.soc-media-ul a {
+  display: block;
+  padding: 0.5em 0.65rem;
+  font-size: 1rem;
+  color: #fff;
+  border: 2px solid;
 }
-
+.soc-media-ul a:hover, .soc-media-ul a:focus {
+  color: #4073ff;
+}
+.sec-services .row {
+ margin-bottom: 3em;
+}
 .sec-services img {
   max-width: 100%;
 }
-
 .sec-contact .row {
   margin-bottom: 3em;
 }
-
 .sec-contact img {
   max-width: 100%;
 }
-
 .sec-testimonials .row {
   margin-bottom: 3em;
 }
-
 .sec-testimonials img {
   max-width: 100%;
 }
-
 .sec-about .row {
   margin-bottom: 3em;
 }
-
 .sec-about img {
   max-width: 100%;
 }
+
