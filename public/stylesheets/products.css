@@ -8,8 +8,9 @@ html {
 }
 .col-md-4{
     float: left;
-    width: 25%;
-    padding: 1px;
+    width: 24%;
+    padding: 15px;
+    height: auto;
 }
 body {
     font-family: 'Open sans', sans-serif;
