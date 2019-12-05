@@ -51,7 +51,7 @@ router.get('/shop/gear', function(req, res, next) {
 
 /* GET clothes page. */
 router.get('/shop/clothes', function(req, res, next) {
-  Product.find(/**{type:'gear'},**/ function(err,docs){
+  Product.find({type:'clothes'}, function(err,docs){
     if (err){
       console.log(err);
     }
