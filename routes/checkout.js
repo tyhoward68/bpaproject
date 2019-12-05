@@ -4,7 +4,10 @@ var flash = require('express-flash');
 var Product = require('../models/product');
 var Order = require('../models/order');
 var Cart = require ('../models/cart');
+var bodyParser = require('body-parser');
 
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: false }));
 router.use(express.json());
 
 router.get('/', isLoggedIn, function (req, res, next) {
@@ -23,8 +26,7 @@ router.post('/', isLoggedIn, function(req, res, next) {
   }
 
   var cart = new Cart(req.session.cart);
-  console.log(req.body.name);
-  //req.checkBody('name', 'Invalid Name').isLength({ min: 5 })
+  req.checkBody('name', 'Invalid Name').isLength({ min: 5 })
   var errors = req.validationErrors();
   if (errors) {
       var messages = [];
@@ -32,24 +34,30 @@ router.post('/', isLoggedIn, function(req, res, next) {
           messages.push(error.msg);
         });
         //return done(null, false, req.flash('error', messages));
-        console.log(errors);
+        //console.log(errors);
         return res.render('shop/checkout', {total: cart.totalPrice, messages: errors, hasErrors: messages.length > 0});
 
-   };
+   }
+   else {
 
-
+   console.log(req.body)
+   
       var order = new Order({
           user: req.user,
           cart: cart,
           address: req.body.address,
           name: req.body.name,
       });
+
       order.save(function(err, result) {
+        //console.log(err)
           req.flash('success', 'Thank you for your purchase(s)!');
           req.session.cart = null;
           res.redirect('/');
-          console.log("order saved");
+          //console.log("order saved");
         });
+      }
+
 });
 
 
