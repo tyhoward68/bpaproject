@@ -27,7 +27,7 @@ router.post('/', isLoggedIn, function(req, res, next) {
 
   var cart = new Cart(req.session.cart);
   req.checkBody('name', 'Invalid Name').isLength({ min: 5 }).isAlpha()
-  req.checkBody('address', 'Invalid Address, Please inpuput your full address').isLength({ min: 20 })
+  req.checkBody('address', 'Invalid Address, Please input your full address').isLength({ min: 20 })
   req.checkBody('card-number', 'Invalid Card. Must be 16 digits long').isNumeric().isLength({min: 15})
   req.checkBody('card-expiry-month', 'Invalid Month. If less then 10, place 0 before the number').isNumeric({ max: 12, min: 1 })
   req.checkBody('card-expiry-Year', 'Invalid Year. Input whole year. Ex: 2040, 2031, 2020.').isNumeric({ max: 2025, min: 2019})
