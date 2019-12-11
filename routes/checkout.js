@@ -4,6 +4,7 @@ var flash = require('express-flash');
 var Product = require('../models/product');
 var Order = require('../models/order');
 var Cart = require ('../models/cart');
+
 var bodyParser = require('body-parser');
 
 router.use(bodyParser.json());

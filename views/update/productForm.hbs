@@ -1,0 +1,27 @@
+<div class="container">
+    <br />
+    <form action="/update/operar" method="POST">
+        <input type="hidden" name="_id" value="{{product._id}}"/>
+        <div class="form-group">
+            <label for="names">imagePath:</label>
+            <input type="names" class="form-control" id="imagePath" name="imagePath" value="{{product.imagePath}}">
+        </div>
+        <div class="form-group">
+            <label for="lastname">title:</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{product.title}}">
+        </div>
+        <div class="form-group">
+            <label for="age">description:</label>
+            <input type="text" class="form-control" id="description" name="description" value="{{product.description}}">
+        </div>
+        <div class="form-group">
+            <label for="age">price:</label>
+            <input type="number" class="form-control" id="price" name="price" value="{{product.price}}">
+        </div>
+        <a href="/" class="btn btn-danger">Cancel</a>
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    {{ csrfToken }}
+        <button type="submit" class="btn btn-primary">Accept</button>
+
+    </form>
+</div>

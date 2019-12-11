@@ -14,6 +14,8 @@ var MongoStore = require('connect-mongo')(session);
 var userRoutes = require('./routes/user');
 var checkoutRoutes = require('./routes/checkout');
 var index = require('./routes/index');
+let updateRoutes = require('./routes/update');
+let productForm = require('./routes/productForm');
 
 var app = express();
 
@@ -48,6 +50,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/update', updateRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/user', userRoutes);
 app.use('/', index);
