@@ -8,6 +8,7 @@
             <th>imagePath</th>
             <th>title</th>
             <th>description</th>
+            <th>type</th>
             <th>price</th>
             <th colspan="2">Operation</th>
         </tr>
@@ -17,9 +18,10 @@
             <td>{{this.imagePath}}</td> 
             <td>{{this.title}}</td>
             <td>{{this.description}}</td>
+            <td>{{this.type}}</td>
             <td>{{this.price}}</td>
             <td><a href="/update/Modify/{{this._id}}">Modify</a></td> 
-            <td><a href="/update/Modify/{{this._id}}">Delete</a></td> 
+            <td><a href="/update/Delete/{{this._id}}">Delete</a></td> 
                                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
                     {{ csrfToken }}
 

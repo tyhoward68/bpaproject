@@ -24,30 +24,30 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/New', (req, res, next) => {
-  res.render('update/productForm', {});
+  res.render('update/productForm', {csrfToken: req.csrfToken()});
 });
 
 router.get('/Modify/:id', (req, res, next) => {
   let idproduct = req.params.id;  
   product.findOne({_id: idproduct }, (err, product) => {
     if (err) throw err;
-    res.render('update/productForm', { product: product });
+    res.render('update/productForm', { csrfToken: req.csrfToken(), product: product });
   });
 });
 
-router.get('/update/Delete/:id', (req, res, next) => {
+router.get('/Delete/:id', (req, res, next) => {
   let idproduct = req.params.id;
 
-  
   product.remove({_id: idproduct }, (err) => {
     if (err) throw err;
-    res.redirect('/');
+    res.redirect('/update');
   });
 
 
 });
 
-router.post('/update/operar', (req, res, next) => {
+
+router.post('/post_change', (req, res, next) => {
   console.log(req.body);  
 
   if (req.body._id === "") {
@@ -55,6 +55,7 @@ router.post('/update/operar', (req, res, next) => {
       imagePath: req.body.imagePath,
       title: req.body.title,
       description: req.body.description,
+      type: req.body.type,
       price: req.body.price
     });
     
@@ -65,7 +66,8 @@ router.post('/update/operar', (req, res, next) => {
       if (err) throw err;
     });
   }
-  res.redirect('/');
+  res.redirect('/update');
 });
+
 
 module.exports = router;

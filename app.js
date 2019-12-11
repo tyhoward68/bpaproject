@@ -15,7 +15,6 @@ var userRoutes = require('./routes/user');
 var checkoutRoutes = require('./routes/checkout');
 var index = require('./routes/index');
 let updateRoutes = require('./routes/update');
-let productForm = require('./routes/productForm');
 
 var app = express();
 
@@ -37,7 +36,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    cookie: {maxAge: 180000}
+    cookie: {maxAge: 1800000}
 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -55,12 +54,15 @@ app.use('/checkout', checkoutRoutes);
 app.use('/user', userRoutes);
 app.use('/', index);
 
+/*
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+*/
+
 
 // error handler
 app.use(function(err, req, res, next) {

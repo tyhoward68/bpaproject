@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 
-<style>
-
-</style>
-
-
 <html>
 <head>
   <link rel='stylesheet' href='/stylesheets/products.css'/>
@@ -23,31 +18,25 @@
 <div class="container">
         <h1>Jerseys</h1>
   
-        <hr />
-  
-        <div class="row">
-          <div class="col-md-4">
-            <img class="center-block" src="https://images.footballfanatics.com/FFImage/thumb.aspx?i=/productimages/_3212000/ff_3212792_full.jpg&w=600"/>
-          </div>
-  
-          <div class="col-md-4">
-            <img class="center-block" src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_2079000/altimages/FF_2079386ALT1_full.jpg&w=600"/>
-          </div>
-  
-          <div class="col-md-4">
-            <img class="center-block" src="https://fanatics.frgimages.com/FFImage/thumb.aspx?i=/productimages/_3538000/ff_3538809-dd41a6fba6ef6d175f31_full.jpg&w=340" />
-          </div>
+   {{# each products}}
 
-  </div>
-        </div>
+   <div class="row">
+     {{# each this}}
+          <div class="col-md-4">
+           <img class="center-block" src="{{this.imagePath}}"/>
+            <h2>{{this.title}}</h2>
+            <div class="clearfix" style="width:400px">
+              <div class="price pull-left" class="price">${{ this.price }} </div>
+                <a href="/add-to-cart/{{this._id}}" class="btn btn-raised btn-success "> 
+                <i class="fa fa-plus" aria-hidden="true"> Add to shopping cart</i> </a>            
               </div>
-            </form>
-          </div>
+            </div>
+
+          {{/each}}
         </div>
-      </div>
-    </section>
-  
-{{>footer}}
+        {{/each}}
+     </section>
+ {{>footer}}
 
 </body>
 </html>
