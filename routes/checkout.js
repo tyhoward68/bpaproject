@@ -26,14 +26,17 @@ router.post('/', isLoggedIn, function(req, res, next) {
   }
 
   var cart = new Cart(req.session.cart);
-  req.checkBody('name', 'Invalid Name').isLength({ min: 5 }).isAlpha()
-  req.checkBody('address', 'Invalid Address, Please input your full address').isAlphanumeric()
-  req.checkBody('card-number', 'Invalid Card. Must be 16 digits long').isNumeric()
-  req.checkBody('card-expiry-month', 'Invalid Month. If less then 10, place 0 before the number').isNumeric({  min: 1, max: 12 })
-  req.checkBody('card-expiry-Year', 'Invalid Year. Input whole year. Ex: 2040, 2031, 2020.').isNumeric({min: 2019})
-  req.checkBody('card-cvc', 'Invalid CVC. Three digits on the back of your card.').isNumeric()
-  
-
+  req.checkBody('First Name', 'Invalid Name. Must be atleast 2 characters long ').isLength({ min: 2 })
+  req.checkBody('First Name', 'Invalid Name. must be alphabetical.').isAlpha()
+  req.checkBody('Last Name', 'Invalid Last Name. Must be alphabetical').isAlpha()
+  req.checkBody('Last Name', 'Invalid Last Name. Must be 2 characters long').isLength({ min:2 })
+  req.checkBody('address', 'Invalid Address, Please input your full address').isLength({ min: 10 })
+  req.checkBody('card-number', 'Invalid Card. Must 16 digits long').isLength({ min: 15 })
+  req.checkBody('card-number', 'Invalid Card. Must be numeric ').isNumeric()
+  req.checkBody('card-expiry-month', 'Invalid Month. Number must be between 1 and 12.').isNumeric({  min: 1, max: 12 })
+  req.checkBody('card-expiry-Year', 'Invalid Year. Input whole year. Ex: 2040, 2031, 2020.').isNumeric({min: 2020, max: 2025})
+  req.checkBody('card-cvc', 'Invalid CVC. Must be Numeric.').isNumeric({min: 100, max: 999})
+  req.checkBody('card-cvc', 'Invalid CVC. Must be 3 digits long.').isLength({ max: 3})
   var errors = req.validationErrors();
   if (errors) {
       var messages = [];
