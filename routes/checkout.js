@@ -57,7 +57,8 @@ router.post('/', isLoggedIn, function(req, res, next) {
           user: req.user,
           cart: cart,
           address: req.body.address,
-          name: req.body.name,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName
       });
 
       order.save(function(err, result) {
@@ -65,7 +66,7 @@ router.post('/', isLoggedIn, function(req, res, next) {
           req.flash('success', 'Thank you for your purchase(s)!');
           req.session.cart = null;
           res.redirect('/');
-          //console.log("order saved");
+          console.log("order saved");
         });
       }
 
