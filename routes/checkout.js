@@ -27,10 +27,10 @@ router.post('/', isLoggedIn, function(req, res, next) {
   }
 
   var cart = new Cart(req.session.cart);
-  req.checkBody('First Name', 'Invalid Name. Must be atleast 2 characters long ').isLength({ min: 2 })
-  req.checkBody('First Name', 'Invalid Name. must be alphabetical.').isAlpha()
-  req.checkBody('Last Name', 'Invalid Last Name. Must be alphabetical').isAlpha()
-  req.checkBody('Last Name', 'Invalid Last Name. Must be 2 characters long').isLength({ min:2 })
+  req.checkBody('firstName', 'Invalid Name. Must be atleast 2 characters long ').isLength({ min: 2 })
+  req.checkBody('firstName', 'Invalid Name. must be alphabetical.').isAlpha()
+  req.checkBody('lastName', 'Invalid Last Name. Must be alphabetical').isAlpha()
+  req.checkBody('lastName', 'Invalid Last Name. Must be 2 characters long').isLength({ min:2 })
   req.checkBody('address', 'Invalid Address, Please input your full address').isLength({ min: 10 })
   req.checkBody('card-number', 'Invalid Card. Must 16 digits long').isLength({ min: 15 })
   req.checkBody('card-number', 'Invalid Card. Must be numeric ').isNumeric()
