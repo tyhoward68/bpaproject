@@ -57,15 +57,14 @@ router.post('/', isLoggedIn, function(req, res, next) {
           user: req.user,
           cart: cart,
           address: req.body.address,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName
+          name: req.body.firstName
       });
 
       order.save(function(err, result) {
         //console.log(err)
           req.flash('success', 'Thank you for your purchase(s)!');
           req.session.cart = null;
-          res.redirect('/');
+          res.redirect('user/profile');
           console.log("order saved");
         });
       }
