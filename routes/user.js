@@ -32,25 +32,12 @@ router.get('/profile123', isLoggedIn, function (req, res, next) {
         }
         var cart;
         orders.forEach(function (order) {
-
-            console.log (order.cart._id);
-            Order.find({}, function(err, orders) {
-                if(err) {
-                    return res.write('Error!');
-                }
-                var cart;
-                orders.forEach(function (order) {
-
-                    cart = new Cart(order.cart);
-                    order.items = cart.generateArray();
-                });
-            });
-
             cart = new Cart(order.cart);
             order.items = cart.generateArray();
         });
+
         //res.render('user/profile123', { orders: orders });
-        res.render('user/profile123', { orders: [123] });
+        res.render('user/profile123', { orders: orders });
     });
 });
 
