@@ -1,0 +1,61 @@
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <a href="/" class="navbar-brand">Epic Win Sporting Goods  </a>
+           
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse" role="button">
+              <span class="sr-only">Toggle Navigation</span>              
+              <span class="icon-bar"></span>              
+              <span class="icon-bar"></span>             
+              <span class="icon-bar"></span>
+            </button>
+  
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right mr-auto">
+              <li class="search">
+              <div>
+                <form  method="GET" class ="form-inline">
+                  <div class="form-group">
+                    <input class="form-control  input-sm searchbox" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </div>
+                </form>
+              </div>
+              </li> 
+              
+              <li class="nav-item"><a class="nav-link" href="/shop/gear">Gear</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shop/clothes">Clothes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shop/shoes">Shoes</a></li>
+              <li class="nav-item"><a class="nav-link" href="/shop/jerseys">Jerseys</a></li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user" aria-hidden="true"> User Mgmt</i>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{# if login}}
+                        <a class="dropdown-item" href="/user/profile">User Account</a></br>
+                        <a class="dropdown-item" href="/user/logout">Logout</a>
+                    {{ else }}
+                        <a class="dropdown-item" href="/user/signup">Sign up</a></br>
+                        <a class="dropdown-item" href="/user/signin">Sign in</a>
+                    {{/if}}
+                </div>
+              </li>
+
+              <li class="nav-item"><a class="nav-link" href="/shopping-cart/"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Cart<span class="badge">{{session.cart.totalQty}}</span> </a></li>
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-user" aria-hidden="true">Admin</i> 
+                  </a>
+
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="/update">Update</a></br>
+                          <a class="dropdown-item" href="/user/report1/">Reports</a></br>
+                          <a class="dropdown-item" href="/user/logout">Logout</a>
+                  </div>
+              </li>
+            </ul>
+          </div>
+      </nav>
+    

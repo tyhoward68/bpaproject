@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel='stylesheet' href='/stylesheets/products.css'/>
+</head>
+
+<body>
+
+  <div class="wrapper">
+   {{>product-navbar}}
+  
+    <section id="home" class="sec-main">
+      <h1 class="main-heading">Welcome to Epic Sporting Goods</h1>
+    </section>
+
+    <section id="about" class="sec-about">
+      <div class="container">
+        <h1>Shoes</h1>
+  
+   {{# each products}}
+
+   <div class="row">
+     {{# each this}}
+          <div class="col-md-4">
+           <img class="center-block responsive" src="{{this.imagePath}}"/>
+            <h2>{{this.title}}</h2>
+                        <div class="clearfix">
+                            <div class="price pull-left">${{ this.price }}</div>
+                            <a href="/add-to-cart/{{this._id}}" class="btn btn-raised btn-success pull-right">
+                             Add to shopping cart
+                            </a>
+                        </div>
+            </div>
+
+          {{/each}}
+        </div>
+        {{/each}}
+     </section>
+   
+{{>footer}}
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel='stylesheet' href='/stylesheets/products.css'/>
+  <style>
+  </style>
+</head>
+
+<body>
+{{>navbar}}
+<div class="top container">      
+    <div class="row">
+    <br>
+    <a href="/update/New" class="btn btn-primary">New</a>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>imagePath</th>
+            <th>title</th>
+            <th>description</th>
+            <th>type</th>
+            <th>price</th>
+            <th colspan="2">Operation</th>
+        </tr>
+        </thead>
+        {{#each products}}
+          <tr>
+            <td>{{this.imagePath}}</td> 
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.price}}</td>
+            <td><a href="/update/Modify/{{this._id}}">Modify</a></td> 
+            <td><a href="/update/Delete/{{this._id}}">Delete</a></td> 
+                                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+          </tr>          
+       {{/each}}   
+      </table>
+    </div>
+</div>

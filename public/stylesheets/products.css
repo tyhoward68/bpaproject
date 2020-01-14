@@ -1,0 +1,185 @@
+
+a, .sec-contact .btn {
+    transition: all 0.25s;
+}
+/*=Typography=*/
+html {
+    font-size: 16px;
+}
+.col-md-4{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fefefe;
+    border: 1px solid #e6e6e6;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+
+}
+body {
+    font-family: 'Open sans', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    margin-top: 100px;
+
+}
+header {
+    height: 1em;
+}
+.navbar a, .sec-about p {
+    text-align: center;
+}
+.navbar a {
+    font-size: 16px;
+}
+.navbar .fa-external-link {
+    font-size: 10px;
+}
+.main-heading {
+    font-family: 'Open sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 9px;
+    text-transform: uppercase;
+}
+.container > h1 {
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+}
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.sec-about a {
+    text-decoration: underline;
+}
+h2 {
+    font-weight: 300;
+    text-align: center;
+}
+.sec-testimonials p {
+    font-style: italic;
+}
+.sec-contact .btn {
+    text-transform: uppercase;
+}
+.soc-media-ul a {
+    text-align: center;
+    text-decoration: none;
+}
+
+footer {
+    padding: 2em 0;
+}
+@media screen and (max-width: 768px) and (min-width: 485px) {
+    form {
+        max-width: 70%;
+   }
+}
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+hr {
+    margin-bottom: 3em;
+    width: 7%;
+}
+
+/*=Layout=*/
+.sec-folio .row {
+    margin-bottom: 3em;
+}
+.sec-folio img {
+    max-width: 100%;
+}
+/*Main*/
+.sec-main {
+    position: relative;
+    height: 200px;
+    background: url(https://storage.needpix.com/rsynced_images/sports-650364_1280.jpg) no-repeat center center;
+    background-size: cover;
+}
+.sec-main:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+}
+.main-heading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    padding: 0;
+    margin: auto;
+    height: 40px;
+    color: #fff;
+}
+
+/*Footer*/
+footer {
+    background: rgb(0, 0, 0);
+}
+.soc-media-ul {
+   display: flex;
+   justify-content: center;
+}
+.soc-media-ul li:not(:first-child) a {
+    margin-left: 1em;
+}
+.soc-media-ul a {
+    display: block;
+    padding: 0.5em 0.65rem;
+    font-size: 1rem;
+    color: #fff;
+    border: 2px solid;
+}
+.soc-media-ul a:hover, .soc-media-ul a:focus {
+    color: #4073ff;
+}
+.sec-about .row {
+    margin-bottom: 0em;
+}
+.sec-about img {
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.price{
+    font-size: 25px;
+    font-weight: 300;
+    text-align: center;
+    margin-left: 10%;
+	margin-right: 10%;
+}
+
+.search {
+    margin: 10px;
+    
+}
+
+.input-sm{
+    height: 22px;
+    padding:0px;
+    font-size: 9px;
+    line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
+    border-radius: 3px;
+}
+.searchbutton {
+    margin:10px;
+}
+
+.searchbox{
+    width: 5px;
+}
+
+.top {
+    margin-top: 40px;
+}

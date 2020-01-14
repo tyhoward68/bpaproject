@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel='stylesheet' href='/stylesheets/products.css'/>
+  <style>
+  </style>
+</head>
+
+<body>
+{{>navbar}}
+<div class="top container">
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>Customer Purchase Report</h1>
+        <hr>
+    
+        {{# each orders }}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-group">  
+                            First Name: {{ this.firstname }} </br>
+                            Last Name: {{ this.lastname }} </br>
+                            Address: {{ this.address }} </br>
+                                             
+                        {{# each this.items }}
+                         
+                            <li class="list-group-item">
+                                <span class="badge">${{ this.price }}</span>
+                                {{ this.item.title }} | {{ this.qty }} Units
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+</div>
+</div>

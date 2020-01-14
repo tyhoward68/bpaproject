@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel='stylesheet' href='/stylesheets/products.css'/>
+  <style>
+      col-md-4 {padding: 2em;} 
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+{{>navbar}}
+
+{{# if products}}
+<div class= "row">
+            {{# each products}}
+    <div class="col-md-4 col-md-offset-4 main">
+                <span class="badge">{{ qty }}</span>
+                <strong>{{ this.item.title }}</strong>
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-primary btn-xs dropdown-toggle" type = "button" data-toggle="dropdown"><span>Action</span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href= "/reduce/{{this.item._id}}"> Reduce by 1 </a></li>
+                            <li><a href= "/remove/{{this.item._id}}"> Remove All </a></li>
+                        </ul>
+                    </div>
+                <span class="label label-success pull-right">${{ this.price }}</span>
+    </div>
+            {{/each}}
+</div>
+<div class= "row">
+    <div class="col-md-4 col-md-offset-4 main">
+        
+        <strong>Total:</strong> <strong class="pull-right">${{totalPrice}}</strong>
+    </div>
+</div>
+<div class= "row">
+    <div class="col-md-4 col-md-offset-4 main">
+        <a href='/checkout' type= "button" class="btn btn-success pull-right">Checkout</a>
+
+                
+        <form action="/checkout/clear-cart" method="post">
+           <button class="btn btn-caution pull-right">Clear Cart</button> 
+        </form>
+
+    </div>
+</div>
+{{ else }}
+<div class= "row">
+    <div class="col-md-4 col-md-offset-4 main">
+        <h2>No Items in Cart</h2>
+    </div>
+</div>
+{{/if}}
+

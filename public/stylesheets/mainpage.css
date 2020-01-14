@@ -1,0 +1,239 @@
+
+a, .sec-contact .btn {
+	 transition: all 0.25s;
+}
+/*=Typography=*/
+ html {
+	 font-size: 16px;
+}
+ body {
+	 font-family: 'Open sans', sans-serif;
+	 font-weight: 300;
+	 margin: 0;
+	 
+}
+.col-md-4{
+    float: left;
+    width: 24%;
+	padding: 10px;
+	height: auto;
+}
+.btn {
+	background-color: #bdbdbd;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin: 4px 2px;
+	opacity: 0;
+	transition: 0.3s;
+  }
+  .col-md-4 .btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: rgb(216, 216, 216);
+	color: white;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+  }
+  
+ .btn:hover {opacity: 1}
+
+ .navbar a, .sec-about p {
+	 text-align: center;
+}
+ .navbar a {
+	 font-size: 16px;
+}
+ .navbar .fa-external-link {
+	 font-size: 10px;
+}
+ .main-heading {
+	 font-family: 'Open sans', sans-serif;
+	 font-weight: 300;
+	 text-align: center;
+	 letter-spacing: 9px;
+	 text-transform: uppercase;
+}
+ .container > h1 {
+	 font-weight: 300;
+	 text-align: center;
+	 text-transform: uppercase;
+}
+ p {
+	 font-size: 16px;
+	 line-height: 1.5;
+}
+ .sec-about a {
+	 text-decoration: underline;
+}
+ h2 {
+	 font-weight: 300;
+	 text-align: center;
+}
+ .sec-testimonials p {
+	 font-style: italic;
+}
+ .sec-contact .btn {
+	 text-transform: uppercase;
+}
+ .soc-media-ul a {
+	 text-align: center;
+	 text-decoration: none;
+}
+/*=Base=*/
+ section {
+	 padding: 5em 0;
+}
+ footer {
+	 padding: 3em 0;
+}
+ @media screen and (max-width: 768px) and (min-width: 485px) {
+	 form {
+		 max-width: 70%;
+	}
+}
+ ul {
+	 padding: 0;
+	 margin: 0;
+	 list-style-type: none;
+}
+ hr {
+	 margin-bottom: 3em;
+	 width: 7%;
+}
+/*=Layout=*/
+ .sec-folio .row {
+	 margin-bottom: 3em;
+}
+ .sec-folio img {
+	 max-width: 100%;
+}
+/*Header*/
+ .navbar-default {
+	 background: #fff;
+}
+ .navbar .fa-external-link {
+	 vertical-align: top;
+}
+ .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	 color: #000000;
+}
+ .navbar-default .navbar-nav > li > a:active {
+	 color: #000000;
+}
+
+.search {
+	margin: 10px;
+	
+}
+
+
+/*Main*/
+ .sec-main {
+	 position: relative;
+	 height: 360px;
+	 background: url(https://storage.needpix.com/rsynced_images/sports-650364_1280.jpg) no-repeat center center;
+	 background-size: cover;
+}
+ .sec-main:after {
+	 content: "";
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 100%;
+	 height: 100%;
+	 background: rgba(0, 0, 0, .5);
+}
+ .main-heading {
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 z-index: 2;
+	 padding: 0;
+	 margin: auto;
+	 height: 40px;
+	 color: #fff;
+}
+/*About*/
+ .sec-about a {
+	 color: #000;
+}
+ .sec-about a:hover, .sec-about a:focus {
+	 color: #000000;
+}
+/*Services*/
+ .sec-services {
+	 background: #f9f9f9;
+}
+ .sec-services i {
+	 display: block;
+	 margin: auto;
+	 width: 45px;
+}
+ .sec-services .fa-paint-brush {
+	 width: 64px;
+}
+ .sec-services .fa-code {
+	 width: 68px;
+}
+ .sec-services h2 {
+	 margin: 1em 0;
+}
+/*Testimonials*/
+ .sec-testimonials {
+	 background: #f9f9f9;
+}
+/*Contact*/
+ .sec-contact .form-control:focus {
+	 border-color: #ad0000;
+	 box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(173, 0, 0, .6);
+}
+ .sec-contact .btn {
+	 padding: 0.5rem 1.75rem;
+	 background: #000;
+	 font-size: 0.95rem;
+	 color: #fff;
+}
+ .sec-contact .btn:hover, .sec-contact .btn:focus {
+	 background: #ad0000;
+	 border-color: #7a0000;
+}
+/*Footer*/
+ footer {
+	 background: rgb(0, 0, 0);
+}
+ .soc-media-ul {
+	display: flex;
+	justify-content: center;
+}
+.soc-media-ul li:not(:first-child) a {
+	margin-left: 1em;
+}
+ .soc-media-ul a {
+	 display: block;
+	 padding: 0.5em 0.65rem;
+	 font-size: 1rem;
+	 color: #fff;
+	 border: 2px solid;
+}
+ .soc-media-ul a:hover, .soc-media-ul a:focus {
+	 color: #4073ff;
+}
+
+
+.sec-about img {
+	max-width: 100%;
+}
+
+
